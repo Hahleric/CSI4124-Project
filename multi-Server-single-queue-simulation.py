@@ -1,13 +1,13 @@
 import numpy as np
 import heapq
 
-
 # Define a Customer class to represent each customer in the queue
 class Customer:
     def __init__(self, arrival_time, service_time):
         self.arrival_time = arrival_time
         self.service_time = service_time
         self.start_service_time = 0
+        self.return_time = 0
         self.waiting_time = 0
         self.departure_time = 0
 
@@ -44,6 +44,7 @@ def multi_server_queue(number_customer, number_servers, inter_arrival_time_mean,
 
     # List to store customer objects
     customer_arr = []
+    timer = 0
 
     # Generate all customers with arrival times and service times
     for i in range(number_customer):
